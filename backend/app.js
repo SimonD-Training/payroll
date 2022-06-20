@@ -29,7 +29,7 @@ app.use(
 );
 
 //.....Static Resources.....//
-app.get("*.*", express.static("frontend", {maxAge: "1y"})); //sets up the URIs for collecting the resources angular needs from the root of dist/project
+app.get("*.*", express.static("frontend/public", {maxAge: "1y"})); //sets up the URIs for collecting the resources angular needs from the root of dist/project
 
 //.....Address Routes.....//
 app.get("*", routes);
