@@ -12,7 +12,7 @@ Edit Employee Event(Dept) - Editing Page
 Form (employee_id, date, pay_cycle, event_type, hours worked)
 
 Accounts - Accounts Staff Dashboard Page
-Contains a form to enter a supervisor name and find salary information entered by them and create/edit them, a form to get an employees salary for a paycycle or range of dates as well as their payslip report.
+Contains a form to enter a supervisor_id and find salary information entered by them and create/edit them from a table display, a form to enter an employee_id get an employees salary for a paycycle or range of dates as well as their payslip report in a information summary.
 
 Edit Employee Salary - Editing Page
 Form (hours worked, pay_cycle)
