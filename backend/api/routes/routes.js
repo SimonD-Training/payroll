@@ -5,13 +5,11 @@ const express = require("express");
 let router = express.Router();
 
 //.....Middleware.....//
-const sessionware = require("../../middleware/sessionware");
+const sessionware = require("../../middlewares/sessionware");
 
 //......Page Routes.....//
 const index = require("../../../frontend/views/index/index");
 router.get("/", index);
-const login = require("../../../frontend/views/login/login");
-router.get("/", login);
 
 router.get("*", sessionware);
 
