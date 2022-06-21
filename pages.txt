@@ -1,2 +1,15 @@
-Index - Landing Page
-(Navlinks): Log In, 
+Index - Login Page
+
+Profile - Employee Profile Page
+Contains the employee full name, department id and current paycycle's pay
+
+Supervisor - Supervisor Dashboard Page
+Contains a button to generate the salary summary of the department, table to create and edit employees in the department, table to create and edit employee event entries.
+
+Edit Employee Salary(Dept) - Editing Page
+Edit Employee Event(Dept) - Editing Page
+
+Accounts - Accounts Staff Dashboard Page
+Contains a form to enter a supervisor name and find salary information entered by them and create/edit them, a form to get an employees salary for a paycycle or range of dates as well as their payslip report.
+
+Edit Employee Salary - Editing Page
