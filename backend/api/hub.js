@@ -9,11 +9,15 @@ const middleware = require("../middlewares/sessionware");
 
 //......API Routes.....//
 //Create
+router.post("/createEmployee", emplopyees.createEmployee);
+router.post("/employeeEvent", emplopyees.createEmployeeEvent);
 
 //Read
+router.get("/total-salary", emplopyees.getEmployee);
 
 //Update
+router.get("/department-update", emplopyees.updateDeptEmployee);
 
 //Delete
 
-module.exports = router;
+router.module.exports = router;
