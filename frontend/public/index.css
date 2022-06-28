@@ -1,3 +1,67 @@
-p {
-    color: red;
+#log_in {
+	background: #f8fcda;
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	font-family: "Roboto", sans-serif;
+}
+
+#log_in .box1 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 90vh;
+	position: relative;
+}
+
+#log_in .box2 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 50%;
+	height: 50vh;
+	position: absolute;
+	background: #ee964b;
+	box-shadow: 10px 5px 8px rgba(0, 0, 0, 0.3);
+}
+
+#log_in form {
+	display: flex;
+	flex-direction: column;
+	width: 60%;
+	box-sizing: border-box;
+}
+
+#log_in p {
+	color: #e3e9c2;
+	font-size: 24px;
+	font-weight: 700;
+}
+
+#log_in input[type="email"],
+input[type="password"] {
+	background: transparent;
+	padding: 8px 0px;
+	outline: none;
+	font-size: 15px;
+	font-weight: bold;
+	color: #e3e9c2;
+	border: 3px solid #f8fcda;
+	margin-bottom: 18px;
+	height: 18px;
+}
+
+#log_in input::placeholder {
+	color: #e3e9c2;
+}
+
+#log_in input[type="submit"] {
+	background: #f95738;
+	border: #f9fbb2;
+	padding: 8px 2px;
+	color: #e3e9c2;
+	font-weight: 600;
+	font-size: 20px;
+	width: 100%;
+	cursor: pointer;
 }
