@@ -1,44 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="dashboard.css" />
-    <title>Document</title>
-  </head>
-  <body>
-    <div class="login-box">
-      <h2>Employee Event</h2>
-      <form>
-        <div class="user-box">
-          <input type="text" name="" required="" />
-          <label>Employee ID</label>
-        </div>
-        <div class="user-box">
-          <input type="date" name="" required="" />
-          <label>Date</label>
-        </div>
-        <div class="user-box">
-          <input type="text" name="" required="" />
-          <label>Pay Cycle</label>
-        </div>
-        <div class="user-box">
-          <input type="text" name="" required="" />
-          <label>Event_type</label>
-        </div>
-        <div class="user-box">
-          <input type="text" name="" required="" />
-          <label>Hours Worked</label>
-        </div>
-        <a href="#">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          Submit
-        </a>
-      </form>
-    </div>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="empl_event.css" />
+		<title>Employee Event Form</title>
+	</head>
+	<body id="emp_event">
+		<div class="login-box">
+			<h2>Employee Event</h2>
+			<form>
+				<div class="user-box">
+					<input type="text" name="" required />
+					<label>Employee ID</label>
+				</div>
+				<div class="user-box">
+					<input type="text" name="" required class="date" />
+					<label data-date-label>Date</label>
+				</div>
+				<div class="user-box">
+					<input type="text" name="" required />
+					<label>Pay Cycle</label>
+				</div>
+				<div class="user-box">
+					<input type="text" name="" required />
+					<label>Event_type</label>
+				</div>
+				<div class="user-box">
+					<input type="text" name="" required />
+					<label>Hours Worked</label>
+				</div>
+				<a href="#">
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					Submit
+				</a>
+			</form>
+		</div>
+		<script>
+			let date = document.querySelector(".date");
+			let dateLabel = document.querySelector("[data-date-label]");
+
+			date.addEventListener("focus", (e) => {
+				e.target.type = "date";
+				value = e.target;
+				console.log(value);
+			});
+
+			date.addEventListener("focusout", (e) => {
+				if (e.target.value == "") {
+					e.target.type = "text";
+				} else {
+					e.target.type = "date";
+				}
+			});
+		</script>
+	</body>
 </html>
