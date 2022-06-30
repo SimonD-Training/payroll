@@ -23,4 +23,4 @@ router.get("/employee", employees.updateDeptEmployee);
 
 //Delete
 
-router.module.exports = router;
+module.exports = router;
