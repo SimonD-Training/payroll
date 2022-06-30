@@ -5,12 +5,28 @@ const express = require("express");
 let router = express.Router();
 
 //.....Middleware.....//
-const sessionware = require("../../middlewares/sessionware");
+const employeeware = require("../../middlewares/employeeware");
+const supervisorware = require("../../middlewares/supervisorware");
+const accountsware = require("../../middlewares/accountsware");
 
 //......Page Routes.....//
 const index = require("../../../frontend/views/index/index");
-router.get("/", index);
+router.get("/", (req, res) => {
+    res.redirect("/home");
+});
+router.get("/home", index);
 
-router.get("*", sessionware);
+//Employees
+router.get("/profile", employeeware, require("../../../frontend/views/profile/profile"));
+
+//Supervisors
+router.get("/supervisor", supervisorware, require("../../../frontend/views/supervisor/supervisor"));
+router.get("/supervisor/edit_event", supervisorware, require("../../../frontend/views/edit_event/edit_event"));
+router.get("/supervisor/edit_salary", supervisorware, require("../../../frontend/views/edit_salary_dept/edit_salary_dept"));
+
+//Accounts Department
+router.get("/accounts", accountsware, require("../../../frontend/views/accounts/accounts"));
+router.get("/accounts/edit_salary", accountsware, require("../../../frontend/views/edit_salary/edit_salary"));
+
 
 module.exports = router;
