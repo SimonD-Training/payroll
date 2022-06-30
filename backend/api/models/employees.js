@@ -34,10 +34,32 @@ exports.getDeptEmployees = (req, res) => {
     );
 };
 
+exports.getSupEmployees = (req, res) => {
+    database.query(
+        "SELECT * FROM payroll NATURAL JOIN employees WHERE supervisor_id = ?;",
+        [req.body.supervisor_id],
+        (err, result) => {
+            if (err) throw err;
+            else res.send(result);
+        }
+    );
+};
+
 exports.updateDeptEmployee = (req, res) => {
     database.query(
         "UPDATE eployees SET fname = ?, lname = ?, rate = ? WHERE employee_id = ? AND department_id = ?;",
         [req.body.fname, req.body.lname, req.body.rate, req.body.employee_id, req.body.department_id],
+        (err) => {
+            if (err) throw err;
+            else res.send(true);
+        }
+    );
+};
+
+exports.updateEmployee = (req, res) => {
+    database.query(
+        "UPDATE eployees SET fname = ?, lname = ?, rate = ? WHERE employee_id = ?;",
+        [req.body.fname, req.body.lname, req.body.rate, req.body.employee_id],
         (err) => {
             if (err) throw err;
             else res.send(true);

@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt");
 
 exports.login = (req, res) => {
     database.query(
-        "SELECT password FROM login WHERE email = ?;",
+        "SELECT password, login_type FROM login WHERE email = ?;",
         [req.body.password],
         (err, result) => {
             if (err) throw err;
@@ -15,7 +15,19 @@ exports.login = (req, res) => {
                     Buffer.from(result[0].password, "binary").toString(),
                     (err, same) => {
                         if (err) throw err;
-                        else if (same) res.send(true);
+                        else if (same) {
+                            switch (result[0].login_type) {
+                                case 2:
+                                    req.session.logtype = "employee";
+                                    break;
+                                case 1:
+                                    req.session.logtype = "supervisor";
+                                    break;
+                                case 0:
+                                    req.session.logtype = "accounts";
+                                    break;
+                            }
+                        }
                         else res.status(401).send(false);
                     }
                 );
