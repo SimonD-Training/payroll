@@ -32,10 +32,14 @@
 	box-sizing: border-box;
 }
 
-#log_in p {
+#log_in p{
 	color: #e3e9c2;
 	font-size: 24px;
 	font-weight: 700;
+}
+
+#log_in h1{
+	color: #ee964b;
 }
 
 #log_in input[type="email"],
