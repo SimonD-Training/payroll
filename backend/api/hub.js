@@ -7,16 +7,19 @@ let router = express.Router();
 //.....Middleware Object.....//
 const middleware = require("../middlewares/sessionware");
 
+//.....Models.....//
+const employees = require("./models/employees");
+
 //......API Routes.....//
 //Create
-router.post("/createEmployee", emplopyees.createEmployee);
-router.post("/employeeEvent", emplopyees.createEmployeeEvent);
+router.post("/employee", employees.createEmployee);
+router.post("/employee_event", employees.createEmployeeEvent);
 
 //Read
-router.get("/total-salary", emplopyees.getEmployee);
+router.get("/employee", employees.getDeptEmployees);
 
 //Update
-router.get("/department-update", emplopyees.updateDeptEmployee);
+router.get("/employee", employees.updateDeptEmployee);
 
 //Delete
 
