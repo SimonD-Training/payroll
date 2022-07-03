@@ -1,5 +1,5 @@
 const accounts = (req, res) => {
-    res.render("accounts");
+    res.render("accounts/accounts");
 }
 
 module.exports = accounts;

@@ -1,105 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="supervisorStyle.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-<body>
-    <!-- admin sidebar starts here -->
-    <div class="admin-sidebar">
-        <h2 class="payrollName">Pay Roll</h2>
-        <a href="#" class="adminHome"><i class='fas fa-user-alt'></i> Employees</a>
-        <button class="salaryButton" data-salary-button>Salary Summary</button>  
-    </div>
-    <!-- admin sidebar ends here -->
-
-    <!-- admin header section -->
- <div class="admin-main">
-    
-    <div class="admin-main-head">
-        <h2 class="admin-main-person">Supervisor</h2>
-        <div>
-            <button class="logout"><a href="">Log Out</a></button>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="/supervisorStyle.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+            integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <script
+            src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"
+        ></script>
+        <script src="supervisor.js"></script>
+    </head>
+    <body>
+        <!-- admin sidebar starts here -->
+        <div class="admin-sidebar">
+            <h2 class="payrollName">Pay Roll</h2>
+            <a href="#" class="adminHome"
+                ><i class="fas fa-user-alt"></i> Employees</a
+            >
+            <button class="salaryButton" onclick="genSumm()" data-salary-button>
+                Salary Summary
+            </button>
         </div>
-    </div>
-    <!-- admin header section ends here -->
+        <!-- admin sidebar ends here -->
 
-    <div class="admin-main-section">
-        <!-- content goes here -->
-        <div class="home">
-            <table class=" table">
-                <thead class="table-head">
-                    <tr class="row">
-                        <th scope="col">Employee Id</th>
-                        <th scope="col">Date</th>
-                        <th scope="col">Pay Cycle</th>
-                        <th scope="col">Hours Worked</th>
-                        <th scope="col">Event Type</th>
-                    </tr>
-                </thead>
-                    
-                <tr class="row">  
-                    <td>24</td>
-                    <td>January 12 , 2022</td>
-                    <td>Something</td>
-                    <td>72 hrs</td>
-                    <td>
-                        <a href="" class="edit">update</a>
-                        <a href="" class="delete">remove</a>
-                    </td>
-                </tr>
+        <!-- admin header section -->
+        <div class="admin-main">
+            <div class="admin-main-head">
+                <h2 class="admin-main-person">Supervisor</h2>
+                <div>
+                    <button class="logout">
+                        <a href="/logout">Log Out</a>
+                    </button>
+                </div>
+            </div>
+            <!-- admin header section ends here -->
 
-                <tr class="row">            
-                    <td>2</td>
-                    <td>January 24 , 2022</td>
-                    <td>Something</td>
-                    <td>24 hrs</td>
-                    <td>
-                        <a href="" class="edit">update</a>
-                        <a href="" class="delete">remove</a>
-                    </td>
-                </tr>                       
-            </table>
+            <div class="admin-main-section">
+                <!-- content goes here -->
+                <div class="home">
+                    <table class="table">
+                        <caption>
+                            Employees
+                        </caption>
+                        <thead class="table-head">
+                            <tr class="row">
+                                <th scope="col">ID</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Surname</th>
+                                <th scope="col">Hourly Rate</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <% employees.forEach((e) => {%>
+                        <tr>
+                            <td><%=e.employee_id%>.</td>
+                            <td><%=e.title%>.</td>
+                            <td><%=e.fname%></td>
+                            <td><%=e.lname%></td>
+                            <td>$<%=e.rate%></td>
+                            <td>
+                                <a
+                                    href="/supervisor/edit_salary/<%=e.employee_id%>"
+                                    class="edit"
+                                    >Edit</a
+                                >
+                            </td>
+                        </tr>
+                        <%});%>
+                        <form id="form1">
+                            <tr>
+                                <td></td>
+                                <td><input type="text" name="title" /></td>
+                                <td><input type="text" name="fname" /></td>
+                                <td><input type="text" name="lname" /></td>
+                                <td>
+                                    <input
+                                        type="number"
+                                        step="0.01"
+                                        name="rate"
+                                        min="1"
+                                    />
+                                </td>
+                                <td>
+                                    <input
+                                        type="submit"
+                                        class="edit"
+                                        value="Create"
+                                    />
+                                </td>
+                            </tr>
+                        </form>
+                    </table>
+                    <br />
+                    <table class="table">
+                        <caption>
+                            Employee Events
+                        </caption>
+                        <thead class="table-head">
+                            <tr class="row">
+                                <th scope="col">ID</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Pay Cycle</th>
+                                <th scope="col">Event Type</th>
+                                <th scope="col">Hours</th>
+                                <th scope="col">Notes</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <% employee_events.forEach((e) => {%>
+                        <tr>
+                            <td><%=e.employee_id%></td>
+                            <td><%=e.date%></td>
+                            <td><%=e.pay_cycle%></td>
+                            <td><%=e.event_type%></td>
+                            <td><%=e.hrs%></td>
+                            <td><%=e.notes%></td>
+                            <td>
+                                <a
+                                    href="/supervisor/edit_event/<%=e.id%>"
+                                    class="edit"
+                                    >Edit</a
+                                >
+                            </td>
+                        </tr>
+                        <%});%>
+                        <form id="form2">
+                            <tr>
+                                <td>
+                                    <input
+                                        type="number"
+                                        name="employee_id"
+                                        min="1"
+                                    />
+                                </td>
+                                <td></td>
+                                <td><input type="date" name="pay_cycle" /></td>
+                                <td>
+                                    <select name="event_type">
+                                        <option value="sick" selected>Sick</option>
+                                        <option value="overtime">
+                                            Overtime
+                                        </option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input
+                                        type="number"
+                                        step="0.1"
+                                        name="hrs"
+                                    />
+                                </td>
+                                <td><textarea name="notes"></textarea></td>
+                                <td>
+                                    <input
+                                        type="submit"
+                                        class="edit"
+                                        value="Create"
+                                    />
+                                </td>
+                            </tr>
+                        </form>
+                    </table>
+                </div>
+                <!-- content ends here -->
+            </div>
 
-        </div> 
-        <!-- content ends here -->
-    </div>
+            <!-- possible modal design, if not scrap-->
+            <div class="modal" data-summary-content>
+                <div class="modal-content">
+                    <span class="close" data-close-summary>&times;</span>
+                    <h2>Department Salary Summary</h2>
+                    <span id="total"></span>
+                </div>
+            </div>
+        </div>
+        <!-- possible modal ends here -->
+        <script>
+            let summaryButton = document.querySelector("[data-salary-button]");
+            let summaryContent = document.querySelector(
+                "[data-summary-content]"
+            );
+            let closeSummary = document.querySelector("[data-close-summary]");
 
-    <!-- possible modal design, if not scrap-->
-    <div class="modal" data-summary-content>
-        
-        <div class="modal-content">
-            <span class="close" data-close-summary>&times;</span>
-			<h2>Employee Salary</h2>
-		</div>
+            // button to display summary content
+            summaryButton.addEventListener("click", () => {
+                summaryContent.style.display = "block";
+            });
 
-    </div>
-    <!-- possible modal ends here -->
-</body>
-<script>
-    let summaryButton = document.querySelector('[data-salary-button]');
-    let summaryContent = document.querySelector('[data-summary-content]');
-    let closeSummary = document.querySelector('[data-close-summary]');
+            // close button for summary content
+            closeSummary.addEventListener("click", () => {
+                summaryContent.style.display = "none";
+            });
 
-    // button to display summary content
-    summaryButton.addEventListener('click',()=>{
-        summaryContent.style.display = 'block'
-    })
-
-    // close button for summary content
-    closeSummary.addEventListener('click',()=>{
-        summaryContent.style.display = 'none'
-    });
-
-    window.addEventListener('click',(e)=>{
-        if (e.target == summaryContent) {
-         summaryContent.style.display = "none";
-  }
-    })
-
-</script>
+            window.addEventListener("click", (e) => {
+                if (e.target == summaryContent) {
+                    summaryContent.style.display = "none";
+                }
+            });
+        </script>
+    </body>
 </html>

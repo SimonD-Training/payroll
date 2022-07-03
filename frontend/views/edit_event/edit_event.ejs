@@ -1,44 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="dashboard.css" />
-    <title>Document</title>
-  </head>
-  <body>
-    <div class="login-box">
-      <h2>Employee Event</h2>
-      <form>
-        <div class="user-box">
-          <input type="text" name="" required="" />
-          <label>Employee ID</label>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/empl_event.css" />
+        <script
+            src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"
+        ></script>
+        <script src="/employee_event.js"></script>
+        <title>Document</title>
+    </head>
+    <body id="emp_event">
+        <div class="login-box">
+            <h2>Employee Event</h2>
+            <form id="form1">
+                <input
+                    style="display: none"
+                    type="number"
+                    name="id"
+                    value="<%=event.id%>"
+                    readonly
+                    required
+                />
+                <div class="user-box">
+                    <input
+                        type="number"
+                        name="employee_id"
+                        value="<%=event.employee_id%>"
+                        required
+                    />
+                    <label>Employee ID</label>
+                </div>
+                <div class="user-box">
+                    <input
+                        type="date"
+                        name="date"
+                        value="<%=event.date%>"
+                        required
+                    />
+                    <label>Date</label>
+                </div>
+                <div class="user-box">
+                    <input
+                        type="number"
+                        name="pay_cycle"
+                        value="<%=event.pay_cycle%>"
+                        required
+                    />
+                    <label>Pay Cycle</label>
+                </div>
+                <label
+                    >Event Type
+                    <select name="event_type">
+                        <option selected>None</option>
+                        <option value="sick">Sick</option>
+                        <option value="overtime">Overtime</option>
+                        <option value="other">Other</option>
+                    </select>
+                </label>
+                <div class="user-box">
+                    <input
+                        type="number"
+                        name="hrs"
+                        step="0.1"
+                        value="<%=event.hrs%>"
+                        required
+                    />
+                    <label>Hours</label>
+                </div>
+                <div class="user-box">
+                    <input
+                        type="text"
+                        name="notes"
+                        value="<%=event.notes%>"
+                        required
+                    />
+                    <label>Notes</label>
+                </div>
+                <input type="submit" value="Update" />
+            </form>
         </div>
-        <div class="user-box">
-          <input type="date" name="" required="" />
-          <label>Date</label>
-        </div>
-        <div class="user-box">
-          <input type="text" name="" required="" />
-          <label>Pay Cycle</label>
-        </div>
-        <div class="user-box">
-          <input type="text" name="" required="" />
-          <label>Event_type</label>
-        </div>
-        <div class="user-box">
-          <input type="text" name="" required="" />
-          <label>Hours Worked</label>
-        </div>
-        <a href="#">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          Submit
-        </a>
-      </form>
-    </div>
-  </body>
+    </body>
 </html>

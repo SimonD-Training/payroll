@@ -148,7 +148,7 @@
     padding-top: 1rem 1.5rem;
 }
 
-.admin-main-section .table a{
+.admin-main-section .table a, .admin-main-section .table input[type="submit"]{
     color: #ffffff;
     border-radius: 0.25rem; 
     border-width: 1px; 
