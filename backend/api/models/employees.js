@@ -79,9 +79,9 @@ exports.getDeptEmployees = (req, res) => {
 exports.getSupEmployees = (req, res) => {
     database.query(
         "SELECT * FROM payroll NATURAL JOIN employees WHERE supervisor_id = ?;",
-        [req.body.supervisor_id],
+        [req.params.id],
         (err, result) => {
-            if (err) {
+            if (err || result.length < 1) {
                 console.log(err);
                 res.sendStatus(404);
             } else res.send(result);
@@ -104,13 +104,14 @@ exports.getEmployeeEvents = (req, res) => {
 
 exports.updateDeptEmployee = (req, res) => {
     database.query(
-        "UPDATE eployees SET fname = ?, lname = ?, rate = ? WHERE employee_id = ? AND department_id = ?;",
+        "UPDATE employees SET title = ?, fname = ?, lname = ?, rate = ? WHERE employee_id = ? AND department_id = ?;",
         [
+            req.body.title,
             req.body.fname,
             req.body.lname,
-            req.body.rate,
-            req.body.employee_id,
-            req.body.department_id,
+            parseFloat(req.body.rate),
+            parseInt(req.body.employee_id),
+            req.session.department,
         ],
         (err) => {
             if (err) {

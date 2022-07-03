@@ -26,6 +26,7 @@ exports.login = (req, res) => {
                                 case 1:
                                     req.session.logtype = "supervisor";
                                     req.session.department = result[0].department_id;
+                                    req.session.super = result[0].supervisor_id;
                                     res.send(
                                         "/supervisor"
                                     );
