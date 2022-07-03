@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://kit.fontawesome.com/dfabc09165.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="http://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <style>
+      * {
+        font-family: "Roboto", sans-serif;
+      }
+      p,
+      h1,
+      h2 {
+        font-size: larger;
+        padding: 10px;
+      }
+
+      main ul > li > a {
+        display: block;
+        border-bottom: 3px solid#f95738;
+      }
+      main div > ul li > a {
+        padding: 1.75rem;
+      }
+
+      table th {
+        padding: 10px;
+        border-bottom: 1px solid black;
+      }
+      table td,
+      table button {
+        padding: 13px;
+        text-align: center;
+      }
+
+      table button {
+        color: white;
+      }
+      tr input {
+        border: 1px solid black;
+        padding: 10px;
+        border-radius: 0.75rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="p-12 text-3xl shadow-md flex justify-between">
+      <h1 class="text-[#ee964b ] text-[#f95738]">Serhant Construction</h1>
+      <a href=""
+        ><span><i class="fa-solid fa-right-to-bracket"></i></span
+      ></a>
+    </header>
+    <main>
+      <div class="flex">
+        <!-- sidenav -->
+        <div class="w-1/6 h-screen rounded-sm p-2">
+          <br />
+          <h1 class="italic">
+            <span
+              ><i class="fa-solid fa-table-columns"></i> Accounts
+              Dashboard</span
+            >
+          </h1>
+          <br />
+          <hr />
+          <ul>
+            <li>
+              <a href="">Supervisors</a>
+            </li>
+            <li>
+              <a href="">Employees</a>
+            </li>
+          </ul>
+          <br />
+          <h2 class="italic">Settings</h2>
+          <br />
+          <hr />
+          <ul>
+            <li>
+              <a href=""
+                ><span><i class="fa-solid fa-user"></i></span> Profile</a
+              >
+            </li>
+          </ul>
+        </div>
+        <!-- sidenav end -->
+        <section>
+          <div class="m-10 p-5 border-2 grid grid-flow-row gap-6">
+            <div class="col-span-3 rounded p-5 bg-[#F28145]">
+              <form class="flex justify-around">
+                <div>
+                  <input
+                    type="text"
+                    value=""
+                    name=""
+                    placeholder="Supervisor ID"
+                    class="p-2 rounded-md"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  value="submit"
+                  class="rounded-sm p-2 border text-white"
+                >
+                  Generate Salary Information
+                </button>
+              </form>
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Supervisor ID</th>
+                    <th>Pay Cycle</th>
+                    <th>Hours</th>
+                    <th>Salary</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>0043233264</td>
+                    <td>28/06/2022</td>
+                    <td>40.00</td>
+                    <td>727.63</td>
+                    <td>
+                      <button
+                        type="submit"
+                        value="submit"
+                        class="bg-[#266785] rounded"
+                      >
+                        <span><i class="fa-solid fa-pencil"></i></span>
+                        Edit Supervisor
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><input type="text" /></td>
+                    <td><input type="text" /></td>
+                    <td><input type="text" /></td>
+                    <td><input type="text" /></td>
+                    <td>
+                      <button
+                        type="submit"
+                        value="submit"
+                        class="bg-[#8ac926] rounded"
+                      >
+                        <span><i class="fa-solid fa-plus"></i></span>
+                        Create Supervisor
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="m-10 p-5 grid grid-flow-row gap-6 border-2">
+            <div class="col-span-3 rounded p-5 bg-[#F28145]">
+              <form class="flex justify-around items-center">
+                <div>
+                  <input
+                    type="text"
+                    value=""
+                    name=""
+                    placeholder="Employee ID"
+                    class="p-2 rounded-md"
+                  />
+                </div>
+                <div class="flex gap-10">
+                  <button
+                    type="submit"
+                    value="submit"
+                    class="p-2 border text-white"
+                  >
+                    Generate Salary Information
+                  </button>
+                  <button
+                    type="submit"
+                    value="submit"
+                    class="border text-white p-2"
+                  >
+                    Generate Payslip
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Supervisor ID</th>
+                    <th>Pay Cycle</th>
+                    <th>Hours</th>
+                    <th>Salary</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>0043233264</td>
+                    <td>28/06/2022</td>
+                    <td>40.00</td>
+                    <td>727.63</td>
+                    <td>
+                      <button
+                        type="submit"
+                        value="submit"
+                        class="bg-[#266785] rounded"
+                      >
+                        <span><i class="fa-solid fa-pencil"></i></span>
+                        Edit Supervisor
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><input type="text" /></td>
+                    <td><input type="text" /></td>
+                    <td><input type="text" /></td>
+                    <td><input type="text" /></td>
+                    <td>
+                      <button
+                        type="submit"
+                        value="submit"
+                        class="bg-[#8ac926] rounded"
+                      >
+                        <span><i class="fa-solid fa-plus"></i></span>
+                        Create Supervisor
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div>
+                <div class="border p-10">
+                  <h1 class="text-center text-3xl">Serhant Construction</h1>
+                  <h2 class="text-right">
+                    Payslip for the period of June 2022
+                  </h2>
+                  <hr />
+                  <br />
+                  <div class="grid grid-flow-row gap-4">
+                    <div>Employee Name: Mr. John Doe</div>
+                    <div>Employee ID: 0043233264</div>
+                    <hr />
+                    <br />
+                  </div>
+                  <table class="w-full">
+                    <thead>
+                      <tr>
+                        <th>Earnings</th>
+                        <th>Amount</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Basic</td>
+                        <td>$ 527.67</td>
+                      </tr>
+                      <tr>
+                        <td>OT Hours</td>
+                        <td>10</td>
+                      </tr>
+                      <tr>
+                        <td>OT Rate</td>
+                        <td>75</td>
+                      </tr>
+                      <tr class="font-bold text-lg">
+                        <td>Net Pay</td>
+                        <td>$ 1277.67</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer class="h-80 bg-[#EE964B]"></footer>
+  </body>
+</html>
