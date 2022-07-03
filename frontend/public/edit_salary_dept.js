@@ -3,17 +3,15 @@ $(document).ready(() => {
     $("form#form1").on("submit", function (e) {
         e.preventDefault();
         let data = {
-            id: $("input[name=id]").val(),
             employee_id: $("input[name=employee_id]").val(),
-            date: $("input[name=date]").val(),
-            pay_cycle: $("input[name=pay_cycle]").val(),
-            event_type: $("select[name=event_type]").val(),
-            hrs: $("input[name=hrs]").val(),
-            notes: $("input[name=notes]").val(),
+            title: $("input[name=title]").val(),
+            fname: $("input[name=fname]").val(),
+            lname: $("input[name=lname]").val(),
+            rate: $("input[name=rate]").val(),
         };
         $.ajax({
             type: "put",
-            url: `/employee_event/${data.id}`,
+            url: `/dept/employee/${data.employee_id}`,
             data: data,
             success: () => {
                 window.location.reload;

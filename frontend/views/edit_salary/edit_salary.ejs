@@ -1,67 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="salary.css" />
-		<title>Employee Salary Form</title>
-	</head>
-	<body>
-		<div class="login-box">
-			<h2>Employee Salary</h2>
-			<form>
-                <input style="display: none;" value="<%=event.id%>" type="text" name="id" readonly required />
-				<div class="user-box">
-					<input type="text" value="<%=event.employee_id%>" readonly required />
-					<label>Employee ID</label>
-				</div>
-				<div class="user-box">
-					<input type="date" value="<%=event.date%>" name="date" readonly required />
-					<label>Date</label>
-				</div>
-				<div class="user-box">
-					<input type="date" value="<%=event.pay_cycle%>" name="pay_cycle" required />
-					<label>Pay Cycle</label>
-				</div>
-				<div class="user-box">
-					<input type="number" value="<%=event.hrs%>" name="hrs" required />
-					<label>Hours</label>
-				<div class="user-box">
-					<input type="number" value="<%=event.hrs%>" name="hrs" required />
-					<label>Hours</label>
-				</div>
-				<div class="user-box">
-					<input type="text" name="pay_cycle" required class="date" />
-					<label data-date-label>Pay Cycle</label>
-				</div>
-				<a href="#">
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					Submit
-				</a>
-			</form>
-		</div>
-
-		<script>
-			let date = document.querySelector(".date");
-			let dateLabel = document.querySelector("[data-date-label]");
-
-			date.addEventListener("focus", (e) => {
-				e.target.type = "date";
-				value = e.target;
-				console.log(value);
-			});
-
-			date.addEventListener("focusout", (e) => {
-				if (e.target.value == "") {
-					e.target.type = "text";
-				} else {
-					e.target.type = "date";
-				}
-			});
-		</script>
-	</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/global.css" />
+        <link rel="stylesheet" href="/salary.css" />
+        <title>Employee Salary Form</title>
+        <script
+            src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"
+        ></script>
+        <script src="/edit_salary.js"></script>
+    </head>
+    <body>
+        <div id="message"></div>
+        <div class="login-box">
+            <h2>Employee Salary</h2>
+            <form id="form1">
+                <input
+                    style="display: none"
+                    value="<%=event.id%>"
+                    type="text"
+                    name="id"
+                    readonly
+                    required
+                />
+                <div class="user-box">
+                    <input
+                        type="text"
+                        value="<%=event.fname + ' ' + event.lname%>"
+                        readonly
+                        required
+                    />
+                    <label>Name</label>
+                </div>
+                <div class="user-box">
+                    <input
+                        type="number"
+                        value="<%=event.pay_cycle%>"
+                        name="pay_cycle"
+                        required
+                    />
+                    <label>Pay Cycle</label>
+                </div>
+                <div class="user-box">
+                    <input
+                        type="number"
+                        step="0.1"
+                        value="<%=event.hrs%>"
+                        name="hrs"
+                        required
+                    />
+                    <label>Hours</label>
+                </div>
+                <div class="user-box">
+                    <input
+                        type="number"
+                        step="0.01"
+                        value="<%=event.basic_salary%>"
+                        name="basic_salary"
+                        required
+                    />
+                    <label>Basic Salary</label>
+                </div>
+                <div class="user-box">
+                    <input
+                        type="number"
+                        step="0.01"
+                        value="<%=event.salary%>"
+                        name="salary"
+                        required
+                    />
+                    <label>Salary</label>
+                </div>
+                <input type="submit" value="Update" />
+            </form>
+        </div>
+    </body>
 </html>

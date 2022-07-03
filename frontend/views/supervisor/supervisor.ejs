@@ -5,6 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
+        <link rel="stylesheet" href="/global.css" />
         <link rel="stylesheet" href="/supervisorStyle.css" />
         <link
             rel="stylesheet"
@@ -21,6 +22,7 @@
         <script src="supervisor.js"></script>
     </head>
     <body>
+		<div id="message"></div>
         <!-- admin sidebar starts here -->
         <div class="admin-sidebar">
             <h2 class="payrollName">Pay Roll</h2>
@@ -29,6 +31,9 @@
             >
             <button class="salaryButton" onclick="genSumm()" data-salary-button>
                 Salary Summary
+            </button>
+            <button class="salaryButton" onclick="genPayroll()" data-salary-button>
+                Generate Payroll
             </button>
         </div>
         <!-- admin sidebar ends here -->
@@ -81,15 +86,16 @@
                         <form id="form1">
                             <tr>
                                 <td></td>
-                                <td><input type="text" name="title" /></td>
-                                <td><input type="text" name="fname" /></td>
-                                <td><input type="text" name="lname" /></td>
+                                <td><input type="text" name="title" required/></td>
+                                <td><input type="text" name="fname" required/></td>
+                                <td><input type="text" name="lname" required/></td>
                                 <td>
                                     <input
                                         type="number"
                                         step="0.01"
                                         name="rate"
                                         min="1"
+                                        required
                                     />
                                 </td>
                                 <td>
@@ -97,6 +103,7 @@
                                         type="submit"
                                         class="edit"
                                         value="Create"
+                                        required
                                     />
                                 </td>
                             </tr>
@@ -142,12 +149,13 @@
                                         type="number"
                                         name="employee_id"
                                         min="1"
+                                        required
                                     />
                                 </td>
                                 <td></td>
-                                <td><input type="date" name="pay_cycle" /></td>
+                                <td><input type="date" name="pay_cycle" required/></td>
                                 <td>
-                                    <select name="event_type">
+                                    <select name="event_type" required>
                                         <option value="sick" selected>Sick</option>
                                         <option value="overtime">
                                             Overtime
@@ -160,6 +168,7 @@
                                         type="number"
                                         step="0.1"
                                         name="hrs"
+                                        required
                                     />
                                 </td>
                                 <td><textarea name="notes"></textarea></td>
@@ -168,6 +177,7 @@
                                         type="submit"
                                         class="edit"
                                         value="Create"
+                                        required
                                     />
                                 </td>
                             </tr>

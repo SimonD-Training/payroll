@@ -18,7 +18,7 @@ $(document).ready(() => {
             },
             error: () => {
                 $("div#message").css({ display: "block", background: "#f00" });
-                $("div#message").text("Login Failed!");
+                $("div#message").text("Action Failed!");
                 clearTimeout(msgtrack);
                 msgtrack = setTimeout(() => {
                     $("div#message").css({ display: "none" });
@@ -45,7 +45,7 @@ $(document).ready(() => {
             },
             error: () => {
                 $("div#message").css({ display: "block", background: "#f00" });
-                $("div#message").text("Login Failed!");
+                $("div#message").text("Action Failed!");
                 clearTimeout(msgtrack);
                 msgtrack = setTimeout(() => {
                     $("div#message").css({ display: "none" });
@@ -66,6 +66,29 @@ function genSumm() {
         error: () => {
             $("div#message").css({ display: "block", background: "#f00" });
             $("div#message").text("Login Failed!");
+            clearTimeout(msgtrack);
+            msgtrack = setTimeout(() => {
+                $("div#message").css({ display: "none" });
+                $("div#message").text("");
+            }, 3000);
+        },
+    });
+}
+function genPayroll() {
+    $.ajax({
+        type: "get",
+        url: `/api/generate/payroll?pay_cycle=`,
+        success: () => {
+            $("div#message").css({ display: "block", background: "#0f0" });
+            $("div#message").text("Department Payroll Generated!");
+            clearTimeout(msgtrack);
+            setTimeout(() => {
+                window.location.reload();
+            }, 3000);
+        },
+        error: () => {
+            $("div#message").css({ display: "block", background: "#f00" });
+            $("div#message").text("Action Failed!");
             clearTimeout(msgtrack);
             msgtrack = setTimeout(() => {
                 $("div#message").css({ display: "none" });
