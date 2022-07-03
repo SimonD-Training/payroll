@@ -10,10 +10,10 @@ let router = express.Router();
 
 
 //.....Models.....//
-const { updateDepartment, getDepartmentSummary } = require("./models/department");
+const { getDepartmentSummary } = require("./models/department");
 const { createEmployee, createEmployeeEvent, getDeptEmployees, updateDeptEmployee, updateEmployee, getSupEmployees, createDeptEmployee, updateEmployeeEvent } = require("./models/employees");
 const { login } = require("./models/login");
-const { getSalary, getDeptSalary } = require("./models/salary");
+const { getSalary, getDeptSalary, getSalaryId, updatePayroll, processPay } = require("./models/salary");
 
 //......API Routes.....//
 //Create
@@ -24,16 +24,18 @@ router.post("/employee_event", supervisorware, createEmployeeEvent);
 //Read
 router.get("/api/dept/employees", supervisorware, getDeptEmployees);
 router.get("/api/sup/summary", supervisorware, getDepartmentSummary);
-router.get("/api/sup/employees", accountsware, getSupEmployees);
-router.get("/api/salary", accountsware, getSalary);
+router.get("/api/sup/employees/:id", accountsware, getSupEmployees);
+router.get("/api/salary/:id?*", accountsware, getSalary);
+router.get("/api/salary/:id", accountsware, getSalaryId);
 router.get("/api/salary_dept", supervisorware, getDeptSalary);
+router.get("/api/generate/payroll?*", supervisorware, processPay);
 router.post("/login", login);
 
 //Update
 router.put("/dept/employee/:id", supervisorware, updateDeptEmployee);
 router.put("/employee/:id", accountsware, updateEmployee);
-router.put("/dept/:id", supervisorware, updateDepartment);
 router.put("/employee_event/:id", supervisorware, updateEmployeeEvent);
+router.put("/salary/:id", accountsware, updatePayroll);
 
 //Delete
 

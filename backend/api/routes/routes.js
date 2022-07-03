@@ -26,7 +26,7 @@ router.get("/supervisor/edit_salary/:id", supervisorware, require("../../../fron
 
 //Accounts Department
 router.get("/accounts", accountsware, require("../../../frontend/views/accounts/accounts"));
-router.get("/accounts/edit_salary", accountsware, require("../../../frontend/views/edit_salary/edit_salary"));
+router.get("/accounts/edit_salary/:id", accountsware, require("../../../frontend/views/edit_salary/edit_salary"));
 
 
 module.exports = router;
