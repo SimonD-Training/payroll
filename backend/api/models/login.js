@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt");
 
 exports.login = (req, res) => {
     database.query(
-        "SELECT * FROM login NATURAL JOIN departments WHERE email = ?;",
+        "SELECT * FROM login WHERE email = ?;",
         [req.body.email],
         (err, result) => {
             if (err) throw err;
@@ -24,11 +24,22 @@ exports.login = (req, res) => {
                                     );
                                     break;
                                 case 1:
-                                    req.session.logtype = "supervisor";
-                                    req.session.department = result[0].department_id;
-                                    req.session.super = result[0].supervisor_id;
-                                    res.send(
-                                        "/supervisor"
+                                    database.query(
+                                        "SELECT department_id FROM departments WHERE supervisor_id = ?;",
+                                        [result[0].supervisor_id],
+                                        (err, result2) => {
+                                            if (err) {
+                                                console.log(err);
+                                            } else {
+                                                req.session.logtype =
+                                                    "supervisor";
+                                                req.session.department =
+                                                    result2[0].department_id;
+                                                req.session.super =
+                                                    result[0].supervisor_id;
+                                                res.send("/supervisor");
+                                            }
+                                        }
                                     );
                                     break;
                                 case 2:
@@ -41,4 +52,9 @@ exports.login = (req, res) => {
                 );
         }
     );
+};
+
+exports.logout = (req, res) => {
+    if (res.session) req.session.destroy();
+    res.redirect("/");
 };

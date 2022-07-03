@@ -11,6 +11,7 @@ const accountsware = require("../../middlewares/accountsware");
 
 //......Page Routes.....//
 const index = require("../../../frontend/views/index/index");
+const { logout } = require("../models/login");
 router.get("/", (req, res) => {
     res.redirect("/home");
 });
@@ -27,6 +28,8 @@ router.get("/supervisor/edit_salary/:id", supervisorware, require("../../../fron
 //Accounts Department
 router.get("/accounts", accountsware, require("../../../frontend/views/accounts/accounts"));
 router.get("/accounts/edit_salary/:id", accountsware, require("../../../frontend/views/edit_salary/edit_salary"));
+
+router.get("/logout", logout)
 
 
 module.exports = router;
