@@ -1,0 +1,5 @@
+"department_id";"supervisor_id";"department_nm";"overtime_limit"
+1;1;"Operations";16
+2;2;"Sales & Marketing";16
+3;3;"Administration";16
+4;4;"Accounts";16
