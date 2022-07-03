@@ -1,7 +1,6 @@
 //.....Requirements.....//
 const express = require("express");
 const dotenv = require("dotenv");
-const body_parser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const api = require("./api/hub");
@@ -17,7 +16,8 @@ const port = process.env.PORT || 8000;
 app.listen(port, () => console.log(`Listening on port: ${port}..`));
 
 //.....Middlewares.....//
-app.use(body_parser.json());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true}))
 app.use(cookieParser());
 app.use(
   session({
@@ -33,7 +33,7 @@ app.set("views", "frontend/views");
 app.set("view engine", "ejs");
 
 //.....Static Resources.....//
-app.get("*.*", express.static("frontend/public")); //sets up the URIs for collecting the resources angular needs from the root of dist/project
+app.use(express.static("frontend/public")); //sets up the URIs for collecting the resources angular needs from the root of dist/project
 
 //.....Address Routes.....//
 app.get("*", routes);

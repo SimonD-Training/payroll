@@ -17,12 +17,12 @@ router.get("/", (req, res) => {
 router.get("/home", index);
 
 //Employees
-router.get("/profile", employeeware, require("../../../frontend/views/profile/profile"));
+router.get("/profile/:id", employeeware, require("../../../frontend/views/profile/profile"));
 
 //Supervisors
 router.get("/supervisor", supervisorware, require("../../../frontend/views/supervisor/supervisor"));
-router.get("/supervisor/edit_event", supervisorware, require("../../../frontend/views/edit_event/edit_event"));
-router.get("/supervisor/edit_salary", supervisorware, require("../../../frontend/views/edit_salary_dept/edit_salary_dept"));
+router.get("/supervisor/edit_event/:id", supervisorware, require("../../../frontend/views/edit_event/edit_event"));
+router.get("/supervisor/edit_salary/:id", supervisorware, require("../../../frontend/views/edit_salary_dept/edit_salary_dept"));
 
 //Accounts Department
 router.get("/accounts", accountsware, require("../../../frontend/views/accounts/accounts"));

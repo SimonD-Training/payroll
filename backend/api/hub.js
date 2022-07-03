@@ -1,7 +1,6 @@
 //.....Requirements.....//
 const express = require("express");
 const accountsware = require("../middlewares/accountsware");
-const shareware = require("../middlewares/shareware");
 const supervisorware = require("../middlewares/supervisorware");
 
 //.....Initializing Router.....//
@@ -11,27 +10,30 @@ let router = express.Router();
 
 
 //.....Models.....//
-const { updateDepartment } = require("./models/department");
-const { createEmployee, createEmployeeEvent, getDeptEmployees, updateDeptEmployee, updateEmployee, getSupEmployees } = require("./models/employees");
+const { updateDepartment, getDepartmentSummary } = require("./models/department");
+const { createEmployee, createEmployeeEvent, getDeptEmployees, updateDeptEmployee, updateEmployee, getSupEmployees, createDeptEmployee, updateEmployeeEvent } = require("./models/employees");
 const { login } = require("./models/login");
 const { getSalary, getDeptSalary } = require("./models/salary");
 
 //......API Routes.....//
 //Create
-router.post("/employee", shareware, createEmployee);
+router.post("/employee", accountsware, createEmployee);
+router.post("/sup/employee", supervisorware, createDeptEmployee);
 router.post("/employee_event", supervisorware, createEmployeeEvent);
 
 //Read
-router.get("/dept/employees", supervisorware, getDeptEmployees);
-router.get("/sup/employees", accountsware, getSupEmployees);
-router.get("/salary", accountsware, getSalary);
-router.get("/salary_dept", supervisorware, getDeptSalary);
+router.get("/api/dept/employees", supervisorware, getDeptEmployees);
+router.get("/api/sup/summary", supervisorware, getDepartmentSummary);
+router.get("/api/sup/employees", accountsware, getSupEmployees);
+router.get("/api/salary", accountsware, getSalary);
+router.get("/api/salary_dept", supervisorware, getDeptSalary);
 router.post("/login", login);
 
 //Update
-router.put("/dept/employee", supervisorware, updateDeptEmployee);
-router.put("/employee", accountsware, updateEmployee);
-router.put("/dept", supervisorware, updateDepartment);
+router.put("/dept/employee/:id", supervisorware, updateDeptEmployee);
+router.put("/employee/:id", accountsware, updateEmployee);
+router.put("/dept/:id", supervisorware, updateDepartment);
+router.put("/employee_event/:id", supervisorware, updateEmployeeEvent);
 
 //Delete
 
