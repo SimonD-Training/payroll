@@ -10,15 +10,15 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 95vh;
+	height: 100vh;
 }
 
 #profile .cont2 {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	width: 1200px;
-	height: 600px;
+	width: 85%;
+	height: 90%;
 	padding: 1px 1px;
 	border-radius: 8px;
 	background-color: #ee964b;
@@ -48,7 +48,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 300px;
+	height: 50%;
 	width: 100%;
 	border-radius: 8px 8px 0 0;
 	background: #e3e9c2e2;
@@ -65,6 +65,29 @@
 	font-weight: 700;
 }
 
+#profile .box1 .lo_btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+
+#profile .box1 .lo_btn .out_btn {
+	padding: 8px 12px;
+	font-size: 22px;
+	background: #f95738;
+	border: none;
+	color: #f8fcda;
+	box-shadow: 1.5px 1.5px #c54329;
+	cursor: pointer;
+	border-radius: 5px;
+}
+
+#profile .box1 .lo_btn .out_btn:hover {
+	background: #de4e31;
+	border-radius: 5px;
+}
+
 #profile .box2 .text_field1 {
 	display: flex;
 	flex-direction: column;
@@ -78,7 +101,7 @@
 	flex-direction: column;
 	height: 100%;
 	width: 60%;
-	color: rgba(117, 100, 93, 0.292);
+	color: rgb(216, 64, 8);
 }
 
 #profile .box2 ul li {
