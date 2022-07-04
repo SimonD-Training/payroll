@@ -65,7 +65,7 @@ function genSumm() {
         },
         error: () => {
             $("div#message").css({ display: "block", background: "#f00" });
-            $("div#message").text("Login Failed!");
+            $("div#message").text("Action Failed!");
             clearTimeout(msgtrack);
             msgtrack = setTimeout(() => {
                 $("div#message").css({ display: "none" });
