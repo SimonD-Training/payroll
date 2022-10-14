@@ -3,8 +3,8 @@ const express = require("express");
 const dotenv = require("dotenv");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
-const api = require("./api/hub");
-const routes = require("./api/routes/routes");
+const api = require("./backend/api/hub");
+const routes = require("./backend/api/routes/routes");
 
 
 //.....Initialize Dotenv.....//
