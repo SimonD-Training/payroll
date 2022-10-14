@@ -8,17 +8,18 @@ dotenv.config();
 //.....MySQL Login.....//
 let database = mysql.createConnection({
     multipleStatements: true,
-    host: process.env.HOST,
-    user: process.env.USER,
+    host: "localhost",
+    user: "payroll_root",
     password: process.env.PASSWORD,
-    database: process.env.DB
+    database: "payroll_payroll",
 });
 
 //.....MySQL Connect.....//
 database.connect((err) => {
+    console.log(process.env);
     if (err) throw err;
     else console.log("Successful connection to Database.");
-})
+});
 
 //.....Export Connection Object.....//
 module.exports = database;
