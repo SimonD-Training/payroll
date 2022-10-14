@@ -11,7 +11,7 @@ let database = mysql.createConnection({
     host: "localhost",
     user: "payroll_root",
     password: process.env.PASSWORD,
-    database: "payroll_payroll",
+    database: "payroll_main",
 });
 
 //.....MySQL Connect.....//
